@@ -6,7 +6,7 @@ route53_record "create a record" do
   value Net::HTTP.get(URI.parse('http://169.254.169.254/latest/meta-data/public-ipv4'))
   type  "A"
   ttl   60
-  zone_id               node[:route53][:zoneId]
+  zone_id               node[:r53][:zone_id]
   overwrite true
   action :create
 end
